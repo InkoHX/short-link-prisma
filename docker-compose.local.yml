@@ -1,0 +1,14 @@
+# Usage: docker-compose -f ./docker-compose.local.yml up
+
+version: '3'
+
+services:
+  db:
+    image: postgres:alpine
+    container_name: short_link_test_db
+    environment:
+      - POSTGRES_USER=${POSTGRES_DEV_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_DEV_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DEV_DB}
+    ports:
+      - 5432:5432
